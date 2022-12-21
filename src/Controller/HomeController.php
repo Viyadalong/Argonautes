@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home_index', methods: ['GET', 'POST'])]
     public function new(Request $request, MemberRepository $memberRepository): Response
     {
-        $members = $memberRepository->findAll();
+        $members = $memberRepository->findBy([], ['name' => 'asc']);
 
 
         $member = new Member();
@@ -35,12 +35,4 @@ class HomeController extends AbstractController
             'form' => $form,
         ]);
     }
-
-//     #[Route('/{id}', name: 'app_home_show', methods: ['GET'])]
-//     public function show(Member $member): Response
-//     {
-//         return $this->render('home/show.html.twig', [
-//             'member' => $member,
-//         ]);
-//     }
 }

@@ -18,7 +18,7 @@ class MemberType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Nom de l\'Argonaute'
+                    'placeholder' => '(Ex: Charalampos)'
                 ],
                 'constraints' => [
                     new NotBlank([

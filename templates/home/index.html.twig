@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block metadescription %}Embarquez avec Jason, en expédition à la recherche de la toison d'Or.{% endblock %}
-{% block title %}L'équipage Argonautes{% endblock %}
+{% block title %} Viyada | Les Argonautes{% endblock %}
 
 {% block body %}
 <!-- Header section -->
@@ -15,28 +15,19 @@
 <!-- Main section -->
 <main>
     <section class="container">
-        <div class="row">
-            <div class="mx-auto">
-                <div class="col-12">
-                    <div class="form-group row">
-                        <div class="col-sm-12 text-center m-3">
-                            <h2>Ajouter une recrue à l'équipage</h2>
-                            {{ form_start(form) }}
-                            <div class="form-group row mt-4">
-                                {{ form_row(form.name) }}
-                            </div>
-                            <button type="submit" class="btn btn-danger">Ajouter</button>
-                            {{ form_end(form) }}
-                            <div class="text-center mt-3">
-                            {% for member in members %}
-                                <h3>{{ member.name }}</h3>
-                            {% endfor %}
-                        </div>
-                        </div>
-                    </div>
-                </div>
+        <h2 class="m-4">Ajouter un(e) Argonaute</h2>
+            <div class="d-flex justify-content-center">
+                {{ form_start(form) }}
+                {{ form_row(form.name) }}
+                <button type="submit" class="btn btn-danger mx-auto d-block mb-4">Ajouter</button>
+                {{ form_end(form) }}
             </div>
-        </div>
+        <h3 class="m-5 text-center">Membres de l'équipage</h3>
+            <ul class="list-unstyled text-center">
+                {% for member in members %}
+                <li>{{ member.name }}</li>
+                {% endfor %}
+            </ul>
     </section>
 </main>
 

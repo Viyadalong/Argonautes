@@ -53,3 +53,10 @@ footer {
   background: #f76c6c;
   padding: 0.25em 0;
 }
+
+ul {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+}
+
