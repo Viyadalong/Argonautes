@@ -15,14 +15,15 @@
 <!-- Main section -->
 <main>
     <section class="container">
-        <h2 class="m-4">Ajouter un(e) Argonaute</h2>
+        <h2 class="text-center m-4" {{ react_component('MyComponent', { 'fullName': 'Jason !' }) }}></h2>
+        <h3 class="text-center m-4">Ajouter un(e) Argonaute</h3>
             <div class="d-flex justify-content-center">
                 {{ form_start(form) }}
                 {{ form_row(form.name) }}
-                <button type="submit" class="btn btn-danger mx-auto d-block mb-4">Ajouter</button>
+                <button type="submit" class="btn btn-danger mx-auto d-block mt-2 mb-5">Ajouter</button>
                 {{ form_end(form) }}
             </div>
-        <h3 class="m-5 text-center">Membres de l'équipage</h3>
+        <h3 class="text-center mb-5">Membres de l'équipage</h3>
             <ul class="list-unstyled text-center">
                 {% for member in members %}
                 <li>{{ member.name }}</li>
