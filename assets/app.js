@@ -23,3 +23,27 @@ import { registerReactControllerComponents } from '@symfony/ux-react';
 // internal components won't be automatically included in your JS built file if
 // they are not necessary.
 registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
+
+const formMember = document.querySelector('form');
+const membersList = document.querySelector('#members_list');
+
+formMember.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    fetch(this.action,{
+        body: new FormData (e.target),
+        method: 'POST'
+    })
+        .then(response => response.json())
+        .then(json => {
+            handleResponse(json);
+        })
+})
+
+const handleResponse = function(response) {
+    switch (response.code) {
+        case 'MEMBER_ADDED_SUCCESSFULLY':
+            membersList.innerHTML += response.html
+            break;
+    }
+}

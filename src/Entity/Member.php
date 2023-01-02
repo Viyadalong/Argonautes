@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: '`member`')]
 class Member
 {
+    const MEMBER_ADDED_SUCCESSFULLY = 'MEMBER_ADDED_SUCCESSFULLY';
+    const MEMBER_INVALID_FORM = 'MEMBER_INVALID_FORM';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

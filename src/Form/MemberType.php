@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Member;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -32,7 +33,12 @@ class MemberType extends AbstractType
                     ]),
                 ],
             ])
-        ;
+            ->add('save',SubmitType::class,[
+                'label' => 'Ajouter',
+                'attr' => [
+                    'class' => 'btn btn-danger mx-auto d-block mt-3'
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
